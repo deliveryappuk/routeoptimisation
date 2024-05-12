@@ -20,20 +20,34 @@
 <body>
 <div class="row">
     <div class="col">
-        <h1>VRP Request Details</h1>
+        <h1>Request Details</h1>
         <div id="json-editor"></div>
         <p>
             <a href="/">Back</a>
         </p>
     </div>
     <div class="col">
-        <h1>VRP Response Details</h1>
+        <h1>Response Details</h1>
         <div id="json-editor-response"></div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.1.8/jsoneditor.min.js"></script>
 <script>
-   
+    var jsonData = {{ jsonData | safe }};
+    var jsonResponse = {{ jsonResponse | safe }};
+
+    var container = document.getElementById("json-editor");
+    var options = {
+    mode: "form"
+
+
+};
+    var editor = new JSONEditor(container, options);
+    editor.set(jsonData.requests);
+
+    var containerResponse = document.getElementById("json-editor-response");
+    var editorResponse = new JSONEditor(containerResponse, options);
+    editorResponse.set(jsonResponse.routes); // Displaying jsonResponse here
 </script>
 </body>
 </html>
