@@ -25,15 +25,7 @@ class OptimizeRoutes:
     
     def optimize_stops(self, json_data):
         optimized_data = {"routes": []}
-        for request in json_data["requests"]:
-            added = False
-            for route in optimized_data["routes"]:
-                if route[-1]["CollectionFrom"] <= request["CollectionTo"]:
-                    route.append(request)
-                    added = True
-                    break
-            if not added:
-                optimized_data["routes"].append([request])
+        # Write your code here to optimise the route, please feel free to create seprated classes, modules and etc as you need.
 
         return optimized_data
     
