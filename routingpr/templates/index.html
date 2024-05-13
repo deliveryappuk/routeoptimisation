@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
 <div class="content">
     <p>
-        <a href="/request">DeliveryApp Route Optimisation</a>
+        <a href="/request">Task Details</a>
     </p>
     <img src="https://b2296410.smushcdn.com/2296410/wp-content/uploads/2024/03/drivers-header.png?lossy=2&strip=1&webp=1">
 </div>
@@ -15,76 +16,20 @@
 <h1>Task: Vehicle Route Optimization</h1>
 
 <h2>Objective:</h2>
-<p>Develop a Python script to optimize vehicle routes for 3 drivers and 17 deliveries using OR-tools. The script should process incoming data, organize deliveries into optimized routes based on pickup and drop-off locations, time windows, and prepare a response in JSON format with sequence.</p>
+<p>Develop a Python script to optimize vehicle routes for 17 deliveries (from collections to stops) using OR-tools. The script should process by get_json_data, and organize deliveries into optimized routes based on pickup and drop-off locations, time windows, and prepare a response in JSON format with sequence in result optimize_stops.</p>
 
-<h2>Note:</h2>
-<p>Drivers are in the same postcode area for collection.</p>
+<h2>Facts:</h2>
+<ul>
+<li>Unlimited drivers</li>
+<li>Allow Waiting time 30 mins.</li>
+<li>Max hours for each journey and route 8hr</li>
+</ul>
 
 <h2>Input:</h2>
-<p>Sample data in a structured format containing information about each delivery, including order ID, collection postcode, collection time window, and stop postcode.</p>
-<table border="1">
-<tr>
-<th>Order ID</th>
-<th>Collection Postcode</th>
-<th>Collection From (HH:MM)</th>
-<th>Collection To (HH:MM)</th>
-<th>Stop Postcode</th>
-</tr>
-<tr>
-<td>1</td>
-<td>EC4A 1AA</td>
-<td>08:30:00</td>
-<td>09:00:00</td>
-<td>SW1A 1AA</td>
-</tr>
-<tr>
-<td>2</td>
-<td>EC4A 1AA</td>
-<td>08:30:00</td>
-<td>09:00:00</td>
-<td>EC1A 1AA</td>
-</tr>
-<!-- More rows... -->
-</table>
+<p>jsonData in a structured format containing information about each delivery, including order ID, collection postcode, collection time window, stop postcode, latitude, and longitude.</p>
 
 <h2>Output:</h2>
-<p>A JSON response that organizes the deliveries into optimized routes for each driver.</p>
-
-<h2>Task Details:</h2>
-<ol>
-<li><strong>Data Processing:</strong>
-<ul>
-<li>Parse the incoming JSON data to extract pickup and drop-off requests.</li>
-<li>Organize the requests into a suitable data structure for route optimization.</li>
-</ul>
-</li>
-<li><strong>Route Optimization:</strong>
-<ul>
-<li>Utilize Model to define and solve the vehicle routing problem.</li>
-<li>Implement constraints such as vehicle capacities, time windows, and pickup/drop-off locations.</li>
-<li>Optimize routes for each driver based on their depot location and time windows.</li>
-</ul>
-</li>
-<li><strong>Response Preparation:</strong>
-<ul>
-<li>Prepare a JSON response that includes optimized routes for each driver.</li>
-<li>Format the response with sequence according to the specified structure, including order locations and request IDs.</li>
-</ul>
-</li>
-<li><strong>Testing and Validation:</strong>
-<ul>
-<li>Test the script with sample data to ensure it generates valid and optimized routes.</li>
-<li>Validate the response format against provided examples.</li>
-</ul>
-</li>
-<li><strong>Documentation and Reporting:</strong>
-<ul>
-<li>Document the code thoroughly, including explanations of key components and functions.</li>
-<li>Provide clear instructions on running the script and interpreting the results.</li>
-<li>Include a report summarizing the approach, challenges, and solution performance.</li>
-</ul>
-</li>
-</ol>
+<p>A JSON response in result of optimize_stops that organizes the deliveries into optimized routes.</p>
 
 </body>
 </html>
